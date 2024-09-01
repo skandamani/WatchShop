@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{%block body_block %} 
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="product-img"  src="{{product.image.url}}" alt="Not Available">
+        </div>
+        <div class="col-md-6" class="product_description">
+            <h2>{{product.name}}</h2>
+            <h3>Amount: Rs {{product.price}}</h3>
+            <p class="product_description">{{product.description}}</p>
+        </div>
+    </div>
+    {% for review in reviews %}
+    <div class="card" style="width: 100%">
+        <h2>{{review.user.username}}</h2>
+        <h3>Rating:  {{review.rating}}</h3>
+        <p class="product_description">{{review.review_text}}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

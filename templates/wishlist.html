@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{%block body_block %}  {% for item in user_products %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="product-img"  src="{{item.image.url}}" alt="Not Available">
+        </div>
+        <div class="col-md-6">
+            <h2>{{item.name}}</h2>
+            <h3>Amount: Rs {{item.price}}</h3>
+            <p class="product_description">{{item.description}}</p>
+            <a href="{% url 'removewish' id=item.id %}" class='btn btn-primary'> Remove from Wishlist</a>
+      
+        </div>
+    </div>
+</div>
+{% endfor %} {% endblock %}

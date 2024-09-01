@@ -1,0 +1,12 @@
+1. Python Anywhere signup
+2. Git clone -> python anywhere
+3. $ pip freeze > requirements.txt
+4. create virtual env and pip install requirements.txt:-
+ a. $ mkvirtualenv --python=/usr/bin/python3.9 venv
+ b. $ pip install -r requirements.txt
+5. Open new web tab -> Django project -> python 3.9
+6. Set up web app :- 
+ a. virtual env set up
+ b.File path for project source, working directory, static, media
+ c. change path in WSGI configuration file
+7. Enable HTTPS

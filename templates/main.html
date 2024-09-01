@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    .col{
+        margin: 10px;
+    }
+
+    .watchupload-wrapper{
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+
+    .watch-form{
+      max-width: 380px;
+      padding: 15px 35px 45px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 1px solid rgba(0,0,0,1);  
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,1);
+    }
+
+    .form-control{
+      position: relative;
+	    font-size: 16px;
+	    height: auto;
+	    padding: 10px;
+    }
+
+    .c-button{
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .card-img-top{
+      max-height: 290px;
+    }
+
+    .product-img{
+      max-width: 100%;
+      height: 10;
+    }
+
+    .product_description{
+      padding-left: 20px;
+    }
+</style>
+<body>
+  <!-- navbar section -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">WatchShop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active"> 
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'upload_images' %}">Upload Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'show_wishlist' %}">WishList</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'show_cart' %}">Cart</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-6 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+
+      {% if user.is_authenticated %}
+      <h5>{{user.username}}</h5>
+      <a class="nav-link btn btn-info"  href="{% url 'logout' %}">LogOut</a>
+      {% else %}
+      <a class="nav-link btn btn-info"  href="{% url 'login' %}">LogIn</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  {%block body_block %}   {% endblock %}
+
+
+    <!-- footer -->
+    <!-- <div class="container" style="background-color: aliceblue; text-align: center; position: relative;">
+        <h1>This is footer part</h1>
+    </div> -->
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   
+</body>
+</html>
